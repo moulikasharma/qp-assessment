@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <h1 th:text="${pageTitle}"></h1>
+    <form method="post" th:action="${givenAction}" th:object="${item}">
+        <div>
+        	<label>Name:</label>
+            <input name="name" type="text" th:value="${item.name}" readonly="readonly"/>
+        </div>
+        <br>
+        <div>
+        	<label for="price">Price:</label>
+            <input name="price" id="price" type="number" th:value="${item.price}" readonly="readonly"></input>
+        </div>
+        <br>
+        <div>
+        	<label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" th:value="${item.quantity}" min="0"></input>
+        </div>
+        <div>
+    		<input name="id" type="hidden" th:value="${item.id}" />
+		</div>
+        <br>
+        <div>        	
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Current Inventory</title>
+    <link href="tablestyle.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Your selections</h1> 
+    
+    <div>
+    	<table>
+    		<tr>
+        		<th>Name</th>
+        		<th>Price per unit</th>
+        		<th>Quantity</th>
+        		<th>Amount</th>
+    		</tr>
+    		<tr th:each="item : ${items}">
+        		<td th:text="${item.name}"></td>
+        		<td th:text="${item.price}"></td>
+        		<td th:text="${item.quantity}"></td>
+        		<td th:text="${item.amount}"></td>
+        		<td>
+    		</tr>
+		</table>
+    </div>
+    <br><br>
+    <div>
+        	<label>Total Quantity:</label>
+            <input name="totalQty" type="text" th:value="${totalQty}" readonly="readonly"/>
+   </div>
+   <br>
+   <div>
+        	<label>Total Amount:</label>
+            <input name="totalAmt" type="text" th:value="${totalAmt}" readonly="readonly"/>
+   </div>
+        
+	<br><br>
+    <div>
+        <a href="/thanks">Checkout</a>
+    </div>
+    <div>
+        <a href="/">Home</a>
+    </div>
+    
+</body>
+</html>

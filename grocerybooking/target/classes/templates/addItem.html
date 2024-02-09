@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+    <h1 th:text="${pageTitle}"></h1>
+    <form method="post" th:action="${givenAction}">
+        <div>
+        	<label>Name:</label>
+            <input name="name" type="text" placeholder="name" th:value="${givenName}"/>
+        </div>
+        <div>
+        	<label for="price">Price:</label>
+            <input name="price" id="price" type="number" placeholder="price" min="1" th:value="${givenPrice}"></input>
+        </div>
+        <div>
+        	<label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="quantity" min="0" th:value="${givenQuantity}"></input>
+        </div>
+        <div>        	
+            <button type="submit">Add</button>
+        </div>
+    </form>
+</body>
+</html>
